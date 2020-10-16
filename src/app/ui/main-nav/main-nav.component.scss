@@ -31,7 +31,7 @@
     border: none;
     cursor: pointer;
     --webkit-appearance: none;
-    color: #666;
+    color: var(--text-color);
 
     &:focus {
         outline: none;
