@@ -3,9 +3,18 @@
     --nav-menu-bg: #f7f7f7;
     --accent-color: #f1453d;
     --text-color: #666;
-    --link-color: #1691ee;
+    --link-color: #307dfb;
 }
 
 .flex-spacer {
     flex-grow: 1;
+}
+
+.container {
+    padding: 15px 30px;
+}
+
+a {
+    color: var(--link-color);
+    text-transform: none;
 }
