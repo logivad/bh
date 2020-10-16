@@ -1,0 +1,21 @@
+:host {
+    background-color: var(--nav-menu-bg);
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 0 31px 0;
+    font-size: 21px;
+}
+
+a {
+    display: block;
+    color: var(--text-color);
+    font-size: 17px;
+    text-decoration: none;
+    margin-bottom: 19px;
+
+    &.active {
+        color: var(--link-color);
+    }
+}
