@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --main-nav-bg: #efefef;
+    --nav-menu-bg: #f7f7f7;
+    --accent-color: #f1453d;
+}
+
+.flex-spacer {
+    flex-grow: 1;
+}

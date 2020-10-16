@@ -28,6 +28,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/normalize.css/normalize.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bothelp"
+    }
+  },
+  "defaultProject": "bothelp",
+  "cli": {
+    "analytics": "dc32a1eb-42b3-4e2c-bc14-916b0cbc1a58"
+  }
 }
