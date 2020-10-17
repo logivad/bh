@@ -4,15 +4,13 @@
 }
 
 h1 {
-    margin: 0 0 31px 0;
-    font-size: 21px;
+    margin-bottom: 28px;
 }
 
 a {
     display: block;
+    font-size: 15px;
     color: var(--text-color);
-    font-size: 17px;
-    text-decoration: none;
     margin-bottom: 19px;
 
     &.active {

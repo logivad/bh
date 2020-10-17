@@ -1,0 +1,18 @@
+<p class="title">Текстовое сообщение</p>
+
+<div class="textarea-wrap">
+    <textarea
+        (input)="inputHandler($event.target.value)"
+        (blur)="onTouched()"
+    ></textarea>
+
+    <div class="toolbar">
+        <mat-icon>sentiment_satisfied_alt</mat-icon>
+        <mat-icon>code</mat-icon>
+        <span class="toolbar__counter">{{ count }}/{{ maxCount }}</span>
+    </div>
+</div>
+
+<div class="footer">
+    <button mat-button color="primary" type="button">Добавить кнопку</button>
+</div>

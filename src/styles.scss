@@ -1,9 +1,14 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 :root {
     --main-nav-bg: #efefef;
     --nav-menu-bg: #f7f7f7;
     --accent-color: #f1453d;
     --text-color: #666;
+    --text-light: #888;
     --link-color: #307dfb;
+    --border-color: rgba(0,0,0,.12);
 }
 
 .flex-spacer {
@@ -11,10 +16,26 @@
 }
 
 .container {
-    padding: 15px 30px;
+    padding: 20px 30px;
 }
 
 a {
     color: var(--link-color);
-    text-transform: none;
+    text-decoration: none;
+}
+
+.mat-typography h1 {
+    font-size: 19px;
+    line-height: 26px;
+    font-weight: 500;
+}
+
+.text-light {
+    color: var(--text-light);
+}
+
+.mat-button,
+.mat-stroked-button,
+.mat-flat-button {
+    text-transform: uppercase;
 }
