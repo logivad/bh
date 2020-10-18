@@ -17,7 +17,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .container {
-    padding: 20px 30px;
+    padding: 20px 24px;
 }
 
 a {
@@ -25,10 +25,11 @@ a {
     text-decoration: none;
 }
 
-.mat-typography h1 {
-    font-size: 19px;
+.h1 {
+    font-size: 18px;
     line-height: 26px;
     font-weight: 500;
+    margin-bottom: 15px;
 }
 
 .text-light {
@@ -39,4 +40,8 @@ a {
 .mat-stroked-button,
 .mat-flat-button {
     text-transform: uppercase;
+}
+
+.w100p {
+    width: 100%;
 }
