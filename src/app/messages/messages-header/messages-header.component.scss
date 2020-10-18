@@ -1,0 +1,16 @@
+:host {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+}
+
+.content {
+    padding-right: 15px;
+}
+
+.controls {
+    ::ng-deep {
+        .mat-button-base + .mat-button-base {
+            margin-left: 8px;
+        }
+    }
+}

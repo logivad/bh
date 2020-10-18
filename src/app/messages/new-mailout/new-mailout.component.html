@@ -1,5 +1,11 @@
 <div class="container">
-    <div  class="h1">Новая рассылка</div>
+    <app-messages-header>
+        <div  class="h1">Новая рассылка</div>
+        <div controls>
+            <button mat-flat-button>Отмена</button>
+            <button mat-flat-button color="primary">Сохранить и закрыть</button>
+        </div>
+    </app-messages-header>
 </div>
 
 <mat-horizontal-stepper #stepper (selectionChange)="selectionChangeHandler($event)">
