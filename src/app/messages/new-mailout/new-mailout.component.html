@@ -1,0 +1,45 @@
+<div class="container">
+    <h1>Новая рассылка</h1>
+</div>
+
+<mat-horizontal-stepper #stepper (selectionChange)="selectionChangeHandler($event)">
+    <mat-step [stepControl]="firstFormGroup" label="Сообщение">
+        <div class="step">
+            <div class="title">Создайте сообщение</div>
+            <form [formGroup]="firstFormGroup">
+                <app-message-editor
+                    formControlName="message"
+                    [maxCount]="600"
+                ></app-message-editor>
+            </form>
+            <app-first-step-extras></app-first-step-extras>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" label="Сегментация">
+        <div class="step">
+            <app-second-step [formGroup]="secondFormGroup"></app-second-step>
+        </div>
+    </mat-step>
+
+    <mat-step label="Отправка">
+        <div class="step">
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>
+
+<div class="footer">
+    <button
+        [disabled]="!canClickPrevButton"
+        title="Не стал прятать, чтобы не было сдвига контента и не забыть обсудить"
+        mat-button
+        color="primary"
+        (click)="prevStep()"
+    >
+        Назад
+    </button>
+
+    <button mat-flat-button color="primary" (click)="nextStep()">Далее</button>
+</div>

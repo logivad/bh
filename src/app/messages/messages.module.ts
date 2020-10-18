@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MessageEditorComponent } from './message-editor/message-editor.component';
 import { FirstStepExtrasComponent } from './new-mailout/first-step-extras/first-step-extras.component';
 import { UiModule } from '../ui/ui.module';
+import { SecondStepComponent } from './new-mailout/second-step/second-step.component';
 
 @NgModule({
     declarations: [
@@ -18,6 +19,7 @@ import { UiModule } from '../ui/ui.module';
         NewMailoutComponent,
         MessageEditorComponent,
         FirstStepExtrasComponent,
+        SecondStepComponent,
     ],
     imports: [
         CommonModule,

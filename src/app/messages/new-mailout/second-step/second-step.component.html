@@ -1,0 +1,30 @@
+<form [formGroup]="formGroup">
+    <div class="form-group-title">Выберите канал</div>
+
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="Не выбран" formControlName="channel">
+            <mat-option *ngFor="let channel of channelList" [value]="channel.value">
+                {{channel.viewValue}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="formGroup.get('channel').invalid">Выберите, пожалуйста, канал</mat-error>
+    </mat-form-field>
+
+    <div class="form-group-title">Выберите подписчиков, используя правила</div>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Подписчики, которые соответсвуют</mat-label>
+        <mat-select formControlName="rules">
+            <mat-option *ngFor="let rule of ruleList" [value]="rule.value">
+                {{rule.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div>
+        <app-helpful-button>
+            <mat-icon>add</mat-icon>
+            Добавить правило
+        </app-helpful-button>
+    </div>
+</form>

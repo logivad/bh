@@ -1,0 +1,52 @@
+h1 {
+    margin-bottom: 3px;
+}
+
+:host {
+    display: grid;
+    grid-template-rows: max-content 1fr 70px;
+
+    ::ng-deep {
+        .mat-horizontal-stepper-header-container {
+            border-bottom: 1px solid var(--border-color);
+        }
+        .mat-horizontal-content-container {
+            overflow: hidden;
+            padding: 0 24px 24px 24px;
+            height: calc(100% - 73px);
+        }
+        .mat-horizontal-stepper-content {
+            height: 100%;
+        }
+    }
+}
+
+.title {
+    font-weight: 500;
+    font-size: 17px;
+    margin-bottom: 27px;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    border-top: 1px solid var(--border-color);
+
+    button + button {
+        margin-left: 8px;
+    }
+}
+
+app-first-step-extras {
+    margin-top: 14px;
+}
+
+.step {
+    padding-top: 26px;
+    padding-right: 24px;
+    height: 100%;
+    width: 548px;
+    border-right: 1px solid var(--border-color);
+    box-sizing: border-box;
+}
