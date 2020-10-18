@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FirstStepExtrasComponent } from './first-step-extras.component';
+import { FirstStepComponent } from './first-step.component';
 
-describe('FirstStepExtrasComponent', () => {
-  let component: FirstStepExtrasComponent;
-  let fixture: ComponentFixture<FirstStepExtrasComponent>;
+describe('FirstStepComponent', () => {
+  let component: FirstStepComponent;
+  let fixture: ComponentFixture<FirstStepComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FirstStepExtrasComponent ]
+      declarations: [ FirstStepComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FirstStepExtrasComponent);
+    fixture = TestBed.createComponent(FirstStepComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

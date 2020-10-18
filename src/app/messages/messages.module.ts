@@ -8,9 +8,9 @@ import { NewMailoutComponent } from './new-mailout/new-mailout.component';
 import { MatStepperModule } from '@angular/material/stepper';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MessageEditorComponent } from './message-editor/message-editor.component';
-import { FirstStepExtrasComponent } from './new-mailout/first-step-extras/first-step-extras.component';
 import { UiModule } from '../ui/ui.module';
 import { SecondStepComponent } from './new-mailout/second-step/second-step.component';
+import { FirstStepComponent } from './new-mailout/first-step/first-step.component';
 
 @NgModule({
     declarations: [
@@ -18,8 +18,8 @@ import { SecondStepComponent } from './new-mailout/second-step/second-step.compo
         DraftMessagesComponent,
         NewMailoutComponent,
         MessageEditorComponent,
-        FirstStepExtrasComponent,
         SecondStepComponent,
+        FirstStepComponent,
     ],
     imports: [
         CommonModule,

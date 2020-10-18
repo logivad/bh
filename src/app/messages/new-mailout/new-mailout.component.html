@@ -5,14 +5,7 @@
 <mat-horizontal-stepper #stepper (selectionChange)="selectionChangeHandler($event)">
     <mat-step [stepControl]="firstFormGroup" label="Сообщение">
         <div class="step">
-            <div class="title">Создайте сообщение</div>
-            <form [formGroup]="firstFormGroup">
-                <app-message-editor
-                    formControlName="message"
-                    [maxCount]="600"
-                ></app-message-editor>
-            </form>
-            <app-first-step-extras></app-first-step-extras>
+            <app-first-step [formGroup]="firstFormGroup"></app-first-step>
         </div>
     </mat-step>
 

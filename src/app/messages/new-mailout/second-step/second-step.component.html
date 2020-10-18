@@ -7,7 +7,7 @@
                 {{channel.viewValue}}
             </mat-option>
         </mat-select>
-        <mat-error *ngIf="formGroup.get('channel').invalid">Выберите, пожалуйста, канал</mat-error>
+        <mat-error *ngIf="formGroup.get('channel').invalid && formGroup.get('channel').touched">Выберите, пожалуйста, канал</mat-error>
     </mat-form-field>
 
     <div class="form-group-title">Выберите подписчиков, используя правила</div>

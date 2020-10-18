@@ -1,4 +1,12 @@
-<app-helpful-button>
+<div class="title">Создайте сообщение</div>
+<form [formGroup]="formGroup">
+    <app-message-editor
+        formControlName="message"
+        [maxCount]="600"
+    ></app-message-editor>
+</form>
+
+<app-helpful-button class="quick-answer">
     <mat-icon>reply</mat-icon>
     Быстрый ответ
 </app-helpful-button>
