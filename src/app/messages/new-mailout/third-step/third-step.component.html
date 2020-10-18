@@ -1,0 +1,24 @@
+<form [formGroup]="formGroup">
+    <div class="h1">Мы отправим это сообщение 25 пользователям</div>
+
+    <mat-form-field appearance="outline" class="w100p">
+        <mat-label>Введите заголовок</mat-label>
+        <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="w100p">
+        <mat-label>Тег сообщения для Facebook</mat-label>
+        <mat-select formControlName="facebookTag">
+            <mat-option *ngFor="let rule of tagList" [value]="rule.value">
+                {{rule.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="h1">Время отправки</div>
+
+    <mat-radio-group aria-label="Выберите время отправки" color="primary" formControlName="sendTime">
+        <mat-radio-button [value]="0">Отправить сейчас</mat-radio-button>
+        <mat-radio-button [value]="1">Запланированное время</mat-radio-button>
+    </mat-radio-group>
+</form>

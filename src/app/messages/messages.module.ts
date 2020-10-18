@@ -11,6 +11,7 @@ import { MessageEditorComponent } from './message-editor/message-editor.componen
 import { UiModule } from '../ui/ui.module';
 import { SecondStepComponent } from './new-mailout/second-step/second-step.component';
 import { FirstStepComponent } from './new-mailout/first-step/first-step.component';
+import { ThirdStepComponent } from './new-mailout/third-step/third-step.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { FirstStepComponent } from './new-mailout/first-step/first-step.componen
         MessageEditorComponent,
         SecondStepComponent,
         FirstStepComponent,
+        ThirdStepComponent,
     ],
     imports: [
         CommonModule,

@@ -3,22 +3,21 @@
 </div>
 
 <mat-horizontal-stepper #stepper (selectionChange)="selectionChangeHandler($event)">
-    <mat-step [stepControl]="firstFormGroup" label="Сообщение">
+    <mat-step [stepControl]="firstStep" label="Сообщение">
         <div class="step">
-            <app-first-step [formGroup]="firstFormGroup"></app-first-step>
+            <app-first-step [formGroup]="firstStep"></app-first-step>
         </div>
     </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup" label="Сегментация">
+    <mat-step [stepControl]="secondStep" label="Сегментация">
         <div class="step">
-            <app-second-step [formGroup]="secondFormGroup"></app-second-step>
+            <app-second-step [formGroup]="secondStep"></app-second-step>
         </div>
     </mat-step>
 
     <mat-step label="Отправка">
         <div class="step">
-            <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
+            <app-third-step [formGroup]="thirdStep"></app-third-step>
         </div>
     </mat-step>
 </mat-horizontal-stepper>

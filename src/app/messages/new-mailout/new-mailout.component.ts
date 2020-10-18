@@ -9,8 +9,10 @@ import {StepperSelectionEvent} from '@angular/cdk/stepper';
     styleUrls: ['./new-mailout.component.scss'],
 })
 export class NewMailoutComponent implements OnInit {
-    firstFormGroup: FormGroup;
-    secondFormGroup: FormGroup;
+    steps: FormGroup;
+    firstStep: FormGroup;
+    secondStep: FormGroup;
+    thirdStep: FormGroup;
     canClickPrevButton = false;
 
     @ViewChild('stepper') stepper: MatHorizontalStepper;
@@ -18,17 +20,32 @@ export class NewMailoutComponent implements OnInit {
     constructor(private fb: FormBuilder) {}
 
     ngOnInit() {
-        this.firstFormGroup = this.fb.group({
+        this.firstStep = this.fb.group({
             message: ['Текст сообщения', Validators.required],
         });
-        this.secondFormGroup = this.fb.group({
+
+        this.secondStep = this.fb.group({
             channel: ['', Validators.required],
             rules: [''],
         });
 
-        setInterval(() => {
-            console.log(this.secondFormGroup.value);
-        }, 2000);
+        this.thirdStep = this.fb.group({
+            title: [''],
+            facebookTag: [''],
+            sendTime: [0],
+        });
+
+        this.steps = this.fb.group({
+            firstStep: this.firstStep,
+            secondStep: this.secondStep,
+            thirdStep: this.thirdStep,
+        });
+
+        this.steps.valueChanges.subscribe((v) => {
+            console.log('steps', v);
+        });
+        const val = JSON.parse('{"firstStep":{"message":"Привет всем!"},"secondStep":{"channel":1,"rules":2},"thirdStep":{"title":"Заголовок","facebookTag":1,"sendTime":1}}');
+        this.steps.setValue(val);
     }
 
     nextStep() {
