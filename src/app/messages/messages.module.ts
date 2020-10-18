@@ -10,9 +10,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MessageEditorComponent } from './message-editor/message-editor.component';
+import { FirstStepExtrasComponent } from './new-mailout/first-step-extras/first-step-extras.component';
+import {UiModule} from '../ui/ui.module';
 
 @NgModule({
-    declarations: [SentMessagesComponent, DraftMessagesComponent, NewMailoutComponent, MessageEditorComponent],
+    declarations: [SentMessagesComponent, DraftMessagesComponent, NewMailoutComponent, MessageEditorComponent, FirstStepExtrasComponent],
     imports: [
         CommonModule,
         MessagesRoutingModule,
@@ -21,6 +23,7 @@ import { MessageEditorComponent } from './message-editor/message-editor.componen
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
+        UiModule,
     ],
 })
 export class MessagesModule {}

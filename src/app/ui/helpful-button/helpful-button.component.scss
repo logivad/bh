@@ -1,0 +1,11 @@
+:host {
+    color: var(--link-color);
+    display: inline-block;
+
+    ::ng-deep {
+        .mat-stroked-button:not([disabled]) {
+            border-color: var(--link-color-lighter);
+        }
+    }
+;
+}
