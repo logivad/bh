@@ -1,1 +1,12 @@
-<p>draft-messages works!</p>
+<div class="container">
+    <div class="h1">Черновики</div>
+
+    <mat-nav-list>
+        <a mat-list-item
+           routerLink="../new"
+           [queryParams]="{ draft: draft.id }"
+           *ngFor="let draft of drafts"
+        > {{ draft.title }} </a>
+    </mat-nav-list>
+
+</div>

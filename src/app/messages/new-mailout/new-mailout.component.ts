@@ -1,7 +1,10 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {MatHorizontalStepper} from '@angular/material/stepper';
-import {StepperSelectionEvent} from '@angular/cdk/stepper';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatHorizontalStepper } from '@angular/material/stepper';
+import { StepperSelectionEvent } from '@angular/cdk/stepper';
+import { MessagesService } from '../services/messages/messages.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
     selector: 'app-new-mailout',
@@ -17,7 +20,13 @@ export class NewMailoutComponent implements OnInit {
 
     @ViewChild('stepper') stepper: MatHorizontalStepper;
 
-    constructor(private fb: FormBuilder) {}
+    constructor(
+        private fb: FormBuilder,
+        private messagesServise: MessagesService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private snackBar: MatSnackBar,
+    ) {}
 
     ngOnInit() {
         this.firstStep = this.fb.group({
@@ -41,10 +50,12 @@ export class NewMailoutComponent implements OnInit {
             thirdStep: this.thirdStep,
         });
 
-        this.steps.valueChanges.subscribe((v) => {
+        this.steps.valueChanges.subscribe(v => {
             console.log('steps', v);
         });
-        const val = JSON.parse('{"firstStep":{"message":"Привет всем!"},"secondStep":{"channel":1,"rules":2},"thirdStep":{"title":"Заголовок","facebookTag":1,"sendTime":1}}');
+        const val = JSON.parse(
+            '{"firstStep":{"message":"Привет всем!"},"secondStep":{"channel":1,"rules":2},"thirdStep":{"title":"Заголовок","facebookTag":1,"sendTime":1}}',
+        );
         this.steps.setValue(val);
     }
 
@@ -58,5 +69,17 @@ export class NewMailoutComponent implements OnInit {
 
     selectionChangeHandler(e: StepperSelectionEvent) {
         this.canClickPrevButton = e.selectedIndex > 0;
+    }
+
+    saveAndClose() {
+        this.messagesServise
+            .saveDraft(this.steps.value)
+            .then(() => {
+                this.router.navigate(['../drafts'], { relativeTo: this.route });
+            })
+            .catch(e => {
+                this.snackBar.open('Error! Cannot save draft', '', { duration: 3000 });
+                console.error('Cannot save draft', e);
+            });
     }
 }
