@@ -26,22 +26,23 @@ export class MessagesService {
         }));
     }
 
-    async saveDraft(data) {
-        const id = data.id || Date.now();
+    getDraftById(id) {
+        return Promise.resolve(this.getFromStorage(id));
+    }
 
-        const draft = {
-            ...data,
-            id,
-        };
-
-        await this.saveToStorage(id, draft);
+    async saveDraft(draft) {
+        await this.saveToStorage(draft.id, draft);
         const drafts = this.getFromStorage(STORAGE_KEY_DRAFTS) || {};
         this.saveToStorage(STORAGE_KEY_DRAFTS, {
             ...drafts,
-            [id]: {
+            [draft.id]: {
                 title: draft.thirdStep.title
             },
         });
+    }
+
+    async deleteDraft(id) {
+        localStorage.removeItem(id);
     }
 
     saveToStorage(key, value) {

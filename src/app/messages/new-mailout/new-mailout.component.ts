@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { MatHorizontalStepper } from '@angular/material/stepper';
 import { StepperSelectionEvent } from '@angular/cdk/stepper';
 import { MessagesService } from '../services/messages/messages.service';
@@ -17,12 +17,13 @@ export class NewMailoutComponent implements OnInit {
     secondStep: FormGroup;
     thirdStep: FormGroup;
     canClickPrevButton = false;
+    isLastStep = false;
 
     @ViewChild('stepper') stepper: MatHorizontalStepper;
 
     constructor(
         private fb: FormBuilder,
-        private messagesServise: MessagesService,
+        private messagesService: MessagesService,
         private router: Router,
         private route: ActivatedRoute,
         private snackBar: MatSnackBar,
@@ -45,6 +46,9 @@ export class NewMailoutComponent implements OnInit {
         });
 
         this.steps = this.fb.group({
+            // Для упрощения. На самом деле id будет назначаться при сохранении на сервере
+            id: [Date.now()],
+
             firstStep: this.firstStep,
             secondStep: this.secondStep,
             thirdStep: this.thirdStep,
@@ -53,10 +57,17 @@ export class NewMailoutComponent implements OnInit {
         this.steps.valueChanges.subscribe(v => {
             console.log('steps', v);
         });
-        const val = JSON.parse(
-            '{"firstStep":{"message":"Привет всем!"},"secondStep":{"channel":1,"rules":2},"thirdStep":{"title":"Заголовок","facebookTag":1,"sendTime":1}}',
-        );
-        this.steps.setValue(val);
+
+        const draftId = this.route.snapshot.queryParams.draft;
+
+        if (draftId) {
+            this.messagesService.getDraftById(draftId)
+                .then((draft) => {
+                    if (draft) {
+                        this.steps.setValue(draft);
+                    }
+                });
+        }
     }
 
     nextStep() {
@@ -69,10 +80,11 @@ export class NewMailoutComponent implements OnInit {
 
     selectionChangeHandler(e: StepperSelectionEvent) {
         this.canClickPrevButton = e.selectedIndex > 0;
+        this.isLastStep = e.selectedIndex === this.stepper.steps.length;
     }
 
     saveAndClose() {
-        this.messagesServise
+        this.messagesService
             .saveDraft(this.steps.value)
             .then(() => {
                 this.router.navigate(['../drafts'], { relativeTo: this.route });
@@ -81,5 +93,14 @@ export class NewMailoutComponent implements OnInit {
                 this.snackBar.open('Error! Cannot save draft', '', { duration: 3000 });
                 console.error('Cannot save draft', e);
             });
+    }
+
+    cancel() {
+        this.router.navigate(['../drafts'], { relativeTo: this.route });
+    }
+
+    send() {
+        this.router.navigate(['../sent'], { relativeTo: this.route });
+        this.messagesService.deleteDraft(this.steps.value.id);
     }
 }

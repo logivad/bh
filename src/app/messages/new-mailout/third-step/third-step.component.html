@@ -21,4 +21,6 @@
         <mat-radio-button [value]="0">Отправить сейчас</mat-radio-button>
         <mat-radio-button [value]="1">Запланированное время</mat-radio-button>
     </mat-radio-group>
+
+    <button mat-flat-button color="primary" class="green-button" (click)="Send.emit()">Отправить сейчас</button>
 </form>

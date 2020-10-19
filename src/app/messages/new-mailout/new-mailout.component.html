@@ -2,7 +2,7 @@
     <app-messages-header>
         <div  class="h1">Новая рассылка</div>
         <div controls>
-            <button mat-flat-button>Отмена</button>
+            <button mat-flat-button (click)="cancel()">Отмена</button>
             <button mat-flat-button color="primary" (click)="saveAndClose()">Сохранить и закрыть</button>
         </div>
     </app-messages-header>
@@ -23,7 +23,7 @@
 
     <mat-step label="Отправка">
         <div class="step">
-            <app-third-step [formGroup]="thirdStep"></app-third-step>
+            <app-third-step [formGroup]="thirdStep" (Send)="send()"></app-third-step>
         </div>
     </mat-step>
 </mat-horizontal-stepper>
@@ -39,5 +39,5 @@
         Назад
     </button>
 
-    <button mat-flat-button color="primary" (click)="nextStep()">Далее</button>
+    <button mat-flat-button color="primary" (click)="nextStep()" *ngIf="!isLastStep">Далее</button>
 </div>
