@@ -13,6 +13,7 @@ import { SecondStepComponent } from './new-mailout/second-step/second-step.compo
 import { FirstStepComponent } from './new-mailout/first-step/first-step.component';
 import { ThirdStepComponent } from './new-mailout/third-step/third-step.component';
 import { MessagesHeaderComponent } from './messages-header/messages-header.component';
+import { MessagesTableComponent } from './messages-table/messages-table.component';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { MessagesHeaderComponent } from './messages-header/messages-header.compo
         FirstStepComponent,
         ThirdStepComponent,
         MessagesHeaderComponent,
+        MessagesTableComponent,
     ],
     imports: [
         CommonModule,

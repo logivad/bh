@@ -6,7 +6,7 @@
            routerLink="../new"
            [queryParams]="{ draft: draft.id }"
            *ngFor="let draft of drafts"
-        > {{ draft.title }} </a>
+        > {{ draft.title || '[Без названия]' }} </a>
     </mat-nav-list>
 
 </div>

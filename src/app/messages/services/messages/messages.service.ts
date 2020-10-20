@@ -43,6 +43,9 @@ export class MessagesService {
 
     async deleteDraft(id) {
         localStorage.removeItem(id);
+        const drafts = this.getFromStorage('drafts');
+        delete drafts[id];
+        this.saveToStorage('drafts', drafts);
     }
 
     saveToStorage(key, value) {
