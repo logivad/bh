@@ -1,0 +1,15 @@
+:host {
+    display: block;
+
+    ::ng-deep {
+        td.mat-cell {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+
+table {
+    width: 100%;
+    box-shadow: none;
+}

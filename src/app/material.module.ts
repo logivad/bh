@@ -7,6 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatListModule } from '@angular/material/list';
+import { MatTableModule } from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const modules = [
     MatIconModule,
@@ -17,6 +19,8 @@ const modules = [
     MatRadioModule,
     MatSnackBarModule,
     MatListModule,
+    MatCheckboxModule,
+    MatTableModule,
 ];
 
 @NgModule({

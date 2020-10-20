@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 
 export const STORAGE_KEY_DRAFTS = 'drafts';
 
-// export interface Draft {
-//     id?: string;
-//     firstStep: any;
-//     secondStep: any;
-//     thirdStep: any;
-// }
+export interface SentMessage {
+    name: string;
+    status: string;
+    sentCount: number;
+    viewCount: number;
+    clickCount: number;
+    created: number;
+    agent: string;
+}
 
 @Injectable({
     providedIn: 'root',
@@ -22,7 +25,7 @@ export class MessagesService {
 
         return Object.keys(drafts).map(id => ({
             id,
-            ...drafts[id]
+            ...drafts[id],
         }));
     }
 
@@ -36,7 +39,7 @@ export class MessagesService {
         this.saveToStorage(STORAGE_KEY_DRAFTS, {
             ...drafts,
             [draft.id]: {
-                title: draft.thirdStep.title
+                title: draft.thirdStep.title,
             },
         });
     }
@@ -61,5 +64,26 @@ export class MessagesService {
 
     getFromStorage(key) {
         return JSON.parse(localStorage.getItem(key));
+    }
+
+    getSentMessages(): Promise<Array<SentMessage>> {
+        const row = {
+            name: 'minim',
+            status: 'active',
+            sentCount: 240,
+            viewCount: 120,
+            clickCount: 1247,
+
+            // для упрощения
+            created: Date.now(),
+            // created: '15 мая 2020',
+            agent: 'Carl Jenkins',
+        };
+
+        return Promise.resolve(
+            Array.from({ length: 7 })
+                .fill(null)
+                .map(i => ({ ...row })),
+        );
     }
 }

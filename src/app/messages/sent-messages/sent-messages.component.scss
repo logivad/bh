@@ -10,3 +10,21 @@ h1 {
 .link-list a {
     margin-right: 15px;
 }
+
+app-messages-header {
+    border-bottom: 1px solid var(--border-color);
+}
+
+app-messages-table {
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+.filter-buttons {
+    margin-top: 20px;
+    margin-bottom: 25px;
+
+    app-filter-button + app-filter-button {
+        margin-left: 8px;
+    }
+}

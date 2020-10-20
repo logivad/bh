@@ -6,8 +6,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { UiMaterialModule } from '../material.module';
 import { RouterModule } from '@angular/router';
 import { HelpfulButtonComponent } from './helpful-button/helpful-button.component';
+import { FilterButtonComponent } from './filter-button/filter-button.component';
 
-const components = [MainNavComponent, NavMenuComponent, HelpfulButtonComponent];
+const components = [MainNavComponent, NavMenuComponent, HelpfulButtonComponent, FilterButtonComponent];
 
 @NgModule({
     declarations: [...components],

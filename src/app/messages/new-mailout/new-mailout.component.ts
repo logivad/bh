@@ -80,7 +80,7 @@ export class NewMailoutComponent implements OnInit {
 
     selectionChangeHandler(e: StepperSelectionEvent) {
         this.canClickPrevButton = e.selectedIndex > 0;
-        this.isLastStep = e.selectedIndex === this.stepper.steps.length;
+        this.isLastStep = e.selectedIndex === this.stepper.steps.length - 1;
     }
 
     saveAndClose() {
