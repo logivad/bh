@@ -1,0 +1,12 @@
+:host {
+    display: flex;
+    align-items: center;
+
+    ::ng-deep {
+        mat-icon {
+            transform: scale(0.8);
+            margin-left: 5px;
+        }
+    }
+}
+
